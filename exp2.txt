@@ -1,0 +1,336 @@
+SQL> create table item_master
+  2  ( id char(5),
+  3  name varchar2(15),
+  4  type number(7,2),
+  5  
+SQL> ;
+  1  create table item_master
+  2  ( id char(5),
+  3  name varchar2(15),
+  4* type number(7,2),
+SQL> create table item_master
+  2  
+SQL> create table item_master
+  2  ( id char(5),
+  3  name varchar2(15),
+  4  type varchar2(15),
+  5  price number(7,2),
+  6  quality varchar2(15),
+  7  item_pack_date date);
+
+Table created.
+
+SQL> desc item_master;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 CHAR(5)
+ NAME                                               VARCHAR2(15)
+ TYPE                                               VARCHAR2(15)
+ PRICE                                              NUMBER(7,2)
+ QUALITY                                            VARCHAR2(15)
+ ITEM_PACK_DATE                                     DATE
+
+SQL> insert into item_master values("&id","&name","&type","&price","&quality","&item_pack_date");
+Enter value for id: I1
+Enter value for name: DAIRYMILK
+Enter value for type: CHOCOLATE
+Enter value for price: 500
+Enter value for quality: GOOD
+Enter value for item_pack_date: 12-AUG-2000
+old   1: insert into item_master values("&id","&name","&type","&price","&quality","&item_pack_date")
+new   1: insert into item_master values("I1","DAIRYMILK","CHOCOLATE","500","GOOD","12-AUG-2000")
+insert into item_master values("I1","DAIRYMILK","CHOCOLATE","500","GOOD","12-AUG-2000")
+                                                                         *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> insert into item_master values("&id","&name","&type",&price,"&quality","&item_pack_date");
+Enter value for id: I1
+Enter value for name: DAIRYMILK
+Enter value for type: CHOCOLATE
+Enter value for price: 500
+Enter value for quality: GOOD
+Enter value for item_pack_date: 12-AUG-2000
+old   1: insert into item_master values("&id","&name","&type",&price,"&quality","&item_pack_date")
+new   1: insert into item_master values("I1","DAIRYMILK","CHOCOLATE",500,"GOOD","12-AUG-2000")
+insert into item_master values("I1","DAIRYMILK","CHOCOLATE",500,"GOOD","12-AUG-2000")
+                                                                       *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date');
+Enter value for id: I1
+Enter value for name: DAIRYMILK
+Enter value for type: CHOCOLATE
+Enter value for price: 500
+Enter value for quality: GOOD
+Enter value for item_pack_date: 12-AUG-2000
+old   1: insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date')
+new   1: insert into item_master values('I1','DAIRYMILK','CHOCOLATE',500,'GOOD','12-AUG-2000')
+
+1 row created.
+
+SQL> insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date');
+Enter value for id: I2
+Enter value for name: KAJUKATRI
+Enter value for type: MITHAI
+Enter value for price: 1000
+Enter value for quality: VERYGOOD
+Enter value for item_pack_date: 15-JAN-2016
+old   1: insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date')
+new   1: insert into item_master values('I2','KAJUKATRI','MITHAI',1000,'VERYGOOD','15-JAN-2016')
+
+1 row created.
+
+SQL> insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date');
+Enter value for id: I3
+Enter value for name: PIZZA
+Enter value for type: FASTFOOD
+Enter value for price: 350
+Enter value for quality: AVERAGE
+Enter value for item_pack_date: 20-FEB-2015
+old   1: insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date')
+new   1: insert into item_master values('I3','PIZZA','FASTFOOD',350,'AVERAGE','20-FEB-2015')
+
+1 row created.
+
+SQL> insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date');
+Enter value for id: ORANGEJUICE
+Enter value for name: JUICE
+Enter value for type: 50
+Enter value for price: BEST
+Enter value for quality: 
+Enter value for item_pack_date: 
+old   1: insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date')
+new   1: insert into item_master values('ORANGEJUICE','JUICE','50',BEST,'','')
+insert into item_master values('ORANGEJUICE','JUICE','50',BEST,'','')
+                                                          *
+ERROR at line 1:
+ORA-00984: column not allowed here 
+
+
+SQL> insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date');
+Enter value for id: I4
+Enter value for name: ORANGEJUICE
+Enter value for type: JUICE
+Enter value for price: 50
+Enter value for quality: BEST
+Enter value for item_pack_date: 05-FEB-2016
+old   1: insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date')
+new   1: insert into item_master values('I4','ORANGEJUICE','JUICE',50,'BEST','05-FEB-2016')
+
+1 row created.
+
+SQL> insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date');
+Enter value for id: I5
+Enter value for name: VANILLA_CAKE
+Enter value for type: BAKERY ITEM
+Enter value for price: 2000
+Enter value for quality: GOOD
+Enter value for item_pack_date: 01-JAN-2016
+old   1: insert into item_master values('&id','&name','&type',&price,'&quality','&item_pack_date')
+new   1: insert into item_master values('I5','VANILLA_CAKE','BAKERY ITEM',2000,'GOOD','01-JAN-2016')
+
+1 row created.
+
+SQL> SELECT * FROM ITEM_MASTER;
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+I1    DAIRYMILK       CHOCOLATE              500 GOOD            12-AUG-00      
+I2    KAJUKATRI       MITHAI                1000 VERYGOOD        15-JAN-16      
+I3    PIZZA           FASTFOOD               350 AVERAGE         20-FEB-15      
+I4    ORANGEJUICE     JUICE                   50 BEST            05-FEB-16      
+I5    VANILLA_CAKE    BAKERY ITEM           2000 GOOD            01-JAN-16      
+
+SQL> SELECT PRICE,QUALITY,ITEM_PACK_DATE FROM ITEM_MASTER;
+
+     PRICE QUALITY         ITEM_PACK                                            
+---------- --------------- ---------                                            
+       500 GOOD            12-AUG-00                                            
+      1000 VERYGOOD        15-JAN-16                                            
+       350 AVERAGE         20-FEB-15                                            
+        50 BEST            05-FEB-16                                            
+      2000 GOOD            01-JAN-16                                            
+
+SQL> SELECT ID,NAME,TYPE,PRICE FROM ITEM_MASTER;
+
+ID    NAME            TYPE                 PRICE                                
+----- --------------- --------------- ----------                                
+I1    DAIRYMILK       CHOCOLATE              500                                
+I2    KAJUKATRI       MITHAI                1000                                
+I3    PIZZA           FASTFOOD               350                                
+I4    ORANGEJUICE     JUICE                   50                                
+I5    VANILLA_CAKE    BAKERY ITEM           2000                                
+
+SQL> SELECT * FROM ITEM_MASTER ORDER BY QUALITY;
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+I3    PIZZA           FASTFOOD               350 AVERAGE         20-FEB-15      
+I4    ORANGEJUICE     JUICE                   50 BEST            05-FEB-16      
+I5    VANILLA_CAKE    BAKERY ITEM           2000 GOOD            01-JAN-16      
+I1    DAIRYMILK       CHOCOLATE              500 GOOD            12-AUG-00      
+I2    KAJUKATRI       MITHAI                1000 VERYGOOD        15-JAN-16      
+
+SQL> SELECT * FROM ITEM_MASTER GROUP BY QUALITY;
+SELECT * FROM ITEM_MASTER GROUP BY QUALITY
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> SELECT NAME,QUALITY FROM ITEM_MASTER GROUP BY QUALITY;
+SELECT NAME,QUALITY FROM ITEM_MASTER GROUP BY QUALITY
+       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> SELECT NAME FROM ITEM_MASTER WHERE QUALITY='VERYGOOD';
+
+NAME                                                                            
+---------------                                                                 
+KAJUKATRI                                                                       
+
+SQL> SELECT DISTINCT QUALITY FROM ITEM_MASTER;
+
+QUALITY                                                                         
+---------------                                                                 
+GOOD                                                                            
+VERYGOOD                                                                        
+AVERAGE                                                                         
+BEST                                                                            
+
+SQL> UPDATE ITEM_MASTER SET QUALITY='VERYGOOD' WHERE QUALITY='GOOD'
+  2  ;
+
+2 rows updated.
+
+SQL> SELECT *FROM ITEM_MASTER;
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+I1    DAIRYMILK       CHOCOLATE              500 VERYGOOD        12-AUG-00      
+I2    KAJUKATRI       MITHAI                1000 VERYGOOD        15-JAN-16      
+I3    PIZZA           FASTFOOD               350 AVERAGE         20-FEB-15      
+I4    ORANGEJUICE     JUICE                   50 BEST            05-FEB-16      
+I5    VANILLA_CAKE    BAKERY ITEM           2000 VERYGOOD        01-JAN-16      
+
+SQL> ALTER TABLE ITEM_MASTER ADD ITEM_PUR_DATE DATE;
+
+Table altered.
+
+SQL> SELECT *FROM ITEM_MASTER;
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+ITEM_PUR_                                                                       
+---------                                                                       
+I1    DAIRYMILK       CHOCOLATE              500 VERYGOOD        12-AUG-00      
+                                                                                
+                                                                                
+I2    KAJUKATRI       MITHAI                1000 VERYGOOD        15-JAN-16      
+                                                                                
+                                                                                
+I3    PIZZA           FASTFOOD               350 AVERAGE         20-FEB-15      
+                                                                                
+                                                                                
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+ITEM_PUR_                                                                       
+---------                                                                       
+I4    ORANGEJUICE     JUICE                   50 BEST            05-FEB-16      
+                                                                                
+                                                                                
+I5    VANILLA_CAKE    BAKERY ITEM           2000 VERYGOOD        01-JAN-16      
+                                                                                
+                                                                                
+
+SQL> SELECT * FROM ITEM_MASTER WHERE PRICE>500;
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+ITEM_PUR_                                                                       
+---------                                                                       
+I2    KAJUKATRI       MITHAI                1000 VERYGOOD        15-JAN-16      
+                                                                                
+                                                                                
+I5    VANILLA_CAKE    BAKERY ITEM           2000 VERYGOOD        01-JAN-16      
+                                                                                
+                                                                                
+
+SQL> DELETE FROM ITEM_MASTER WHERE PRICE=50;
+
+1 row deleted.
+
+SQL> SELECT *FROM ITEM_MASTER;
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+ITEM_PUR_                                                                       
+---------                                                                       
+I1    DAIRYMILK       CHOCOLATE              500 VERYGOOD        12-AUG-00      
+                                                                                
+                                                                                
+I2    KAJUKATRI       MITHAI                1000 VERYGOOD        15-JAN-16      
+                                                                                
+                                                                                
+I3    PIZZA           FASTFOOD               350 AVERAGE         20-FEB-15      
+                                                                                
+                                                                                
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+ITEM_PUR_                                                                       
+---------                                                                       
+I5    VANILLA_CAKE    BAKERY ITEM           2000 VERYGOOD        01-JAN-16      
+                                                                                
+                                                                                
+
+SQL> RENAME ITEM_MASTER TO ITEM_DETAIL;
+
+Table renamed.
+
+SQL> SELECT *FROM ITEM_DETAIL;
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+ITEM_PUR_                                                                       
+---------                                                                       
+I1    DAIRYMILK       CHOCOLATE              500 VERYGOOD        12-AUG-00      
+                                                                                
+                                                                                
+I2    KAJUKATRI       MITHAI                1000 VERYGOOD        15-JAN-16      
+                                                                                
+                                                                                
+I3    PIZZA           FASTFOOD               350 AVERAGE         20-FEB-15      
+                                                                                
+                                                                                
+
+ID    NAME            TYPE                 PRICE QUALITY         ITEM_PACK      
+----- --------------- --------------- ---------- --------------- ---------      
+ITEM_PUR_                                                                       
+---------                                                                       
+I5    VANILLA_CAKE    BAKERY ITEM           2000 VERYGOOD        01-JAN-16      
+                                                                                
+                                                                                
+
+SQL> ALTER TABLE ITEM_MASTER RENAME PERSON TO ITEM_DETAIL;
+ALTER TABLE ITEM_MASTER RENAME PERSON TO ITEM_DETAIL
+                               *
+ERROR at line 1:
+ORA-14155: missing PARTITION or SUBPARTITION keyword 
+
+
+SQL> ALTER TABLE ITEM_MASTER RENAME TO ITEM_DETAIL;
+ALTER TABLE ITEM_MASTER RENAME TO ITEM_DETAIL
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> SPOOL OFF;
