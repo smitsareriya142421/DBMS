@@ -1,0 +1,519 @@
+SQL> CREATE TABLE DEPOSIT4 (
+  2      ACTNO NUMBER(3) PRIMARY KEY,
+  3      CNAME VARCHAR2(20),
+  4      BNAME VARCHAR2(20),
+  5      AMOUNT NUMBER(8, 2),
+  6      ADATE DATE
+  7  );
+
+Table created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (100, 'ANIL', 'VRCE', 1000.00, '01-MAR-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (101, 'SUNIL', 'AJNI', 5000.00, '04-JAN-96');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (102, 'MEHUL', 'KAROLBAGH', 3500.00, '17-NOV-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (104, 'MADHURI', 'CHANDI', 1200.00, '17-DEC-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (105, 'PRMOD', 'MG ROAD', 3000.00, '27-MAR-96');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (106, 'SANDIP', 'ANDHERI', 2000.00, '31-MAR-96');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (107, 'SHIVANI', 'VIRAR', 1000.00, '05-SEP-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (108, 'KRANTI', 'NEHRUPLACE', 5000.00, '02-JUL-95');
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT4 VALUES (109, 'MINU', 'POWAI', 7000.00, '10-AUG-95');
+
+1 row created.
+
+SQL> SELECT * FROM DEPOSIT4;
+
+     ACTNO CNAME                BNAME                    AMOUNT ADATE           
+---------- -------------------- -------------------- ---------- ---------       
+       100 ANIL                 VRCE                       1000 01-MAR-95       
+       101 SUNIL                AJNI                       5000 04-JAN-96       
+       102 MEHUL                KAROLBAGH                  3500 17-NOV-95       
+       104 MADHURI              CHANDI                     1200 17-DEC-95       
+       105 PRMOD                MG ROAD                    3000 27-MAR-96       
+       106 SANDIP               ANDHERI                    2000 31-MAR-96       
+       107 SHIVANI              VIRAR                      1000 05-SEP-95       
+       108 KRANTI               NEHRUPLACE                 5000 02-JUL-95       
+       109 MINU                 POWAI                      7000 10-AUG-95       
+
+9 rows selected.
+
+SQL> SELECT ACTNO,AMOUNT FROM DEPOSIT4;
+
+     ACTNO     AMOUNT                                                           
+---------- ----------                                                           
+       100       1000                                                           
+       101       5000                                                           
+       102       3500                                                           
+       104       1200                                                           
+       105       3000                                                           
+       106       2000                                                           
+       107       1000                                                           
+       108       5000                                                           
+       109       7000                                                           
+
+9 rows selected.
+
+SQL> CREATE TABLE CUSTOMERS (
+  2      CNAME VARCHAR2(20),
+  3      CITY VARCHAR2(20)
+  4  
+SQL> CREATE TABLE CUSTOMERS2 (
+  2      CNAME VARCHAR2(20),
+  3      CITY VARCHAR2(15)
+  4  );
+
+Table created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('ANIL', 'CALCUTTA');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('SUNIL', 'DELHI');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('MEHUL', 'BARODA');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('MANDAR', 'PATNA');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('MADHURI', 'NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('PRAMOD', 'NAGPUR');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('SANDIP', 'SURAT');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('SHIVANI', 'BOMBAY');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('KRANTI', 'BOMBAY');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMERS2 VALUES ('NAREN', 'BOMBAY');
+
+1 row created.
+
+SQL> 
+SQL> SELECT * FROM CUSTOMERS2 WHERE CITY='BOMBAY';
+
+CNAME                CITY                                                       
+-------------------- ---------------                                            
+SHIVANI              BOMBAY                                                     
+KRANTI               BOMBAY                                                     
+NAREN                BOMBAY                                                     
+
+SQL> CREATE TABLE ITEM_MASTER2 (
+  2      ID NUMBER(5),
+  3      NAME VARCHAR2(20),
+  4      TYPE VARCHAR2(20),
+  5      PRICE NUMBER(10),
+  6      QUALITY VARCHAR2(20),
+  7      ITEM_PACK_DATE DATE
+  8  );
+
+Table created.
+
+SQL> INSERT INTO ITEM_MASTER2 VALUES (11, 'Dairymilk', 'Chocolate', 500, 'Good', '12-AUG-2000');
+
+1 row created.
+
+SQL> INSERT INTO ITEM_MASTER2 VALUES (12, 'Kajukatri', 'Mithai', 1000, 'Verygood', '15-JAN-2016');
+
+1 row created.
+
+SQL> INSERT INTO ITEM_MASTER2 VALUES (13, 'Pizza', 'Fastfood', 350, 'Average', '20-FEB-2015');
+
+1 row created.
+
+SQL> INSERT INTO ITEM_MASTER2 VALUES (14, 'Orangejuice', 'Juice', 50, 'Best', '05-FEB-2016');
+
+1 row created.
+
+SQL> INSERT INTO ITEM_MASTER2 VALUES (15, 'Vanilla_cack', 'Bakery', 2000, 'Good', '01-JAN-2016');
+
+1 row created.
+
+SQL> SELECT * FROM ITEM_MASTER2 WHERE PRICE>500;
+
+        ID NAME                 TYPE                      PRICE                 
+---------- -------------------- -------------------- ----------                 
+QUALITY              ITEM_PACK                                                  
+-------------------- ---------                                                  
+        12 Kajukatri            Mithai                     1000                 
+Verygood             15-JAN-16                                                  
+                                                                                
+        15 Vanilla_cack         Bakery                     2000                 
+Good                 01-JAN-16                                                  
+                                                                                
+
+SQL> CREATE TABLE CUST_MASTER2 (
+  2      CUST_NO VARCHAR2(5),
+  3      CUST_NAME VARCHAR2(20),
+  4      ADDRESS1 VARCHAR2(30),
+  5      CITY VARCHAR2(20),
+  6      STATE VARCHAR2(20),
+  7      PH_NO VARCHAR2(15)
+  8  );
+
+Table created.
+
+SQL> INSERT INTO CUST_MASTER2 VALUES ('C1', 'Priya', 'Ring Road', 'Ahmedabad', 'Gujarat', '8989878548');
+
+1 row created.
+
+SQL> INSERT INTO CUST_MASTER2 VALUES ('C2', 'Puja', 'Lajpat Nager', 'Banaras', 'UP', '7898456213');
+
+1 row created.
+
+SQL> INSERT INTO CUST_MASTER2 VALUES ('C3', 'Ankit', 'Borivali', 'Mumbai', 'Maharashtra', '7885984251');
+
+1 row created.
+
+SQL> INSERT INTO CUST_MASTER2 VALUES ('C4', 'Ravi', 'VajdiRoad', 'Delhi', 'Delhi', '7898452034');
+
+1 row created.
+
+SQL> INSERT INTO CUST_MASTER2 VALUES ('C5', 'Alpa', 'Jamanager Road', 'Ahmedabad', 'Gujarat', '7465241589');
+
+1 row created.
+
+SQL> SELECT DISTINCT CITY FROM CUST_MASTER2;
+
+CITY                                                                            
+--------------------                                                            
+Ahmedabad                                                                       
+Banaras                                                                         
+Mumbai                                                                          
+Delhi                                                                           
+
+SQL> SELECT CNAME FROM DEPOSIT4 WHERE AMOUNT>4000;
+
+CNAME                                                                           
+--------------------                                                            
+SUNIL                                                                           
+KRANTI                                                                          
+MINU                                                                            
+
+SQL> CREATE TABLE EMPLOYEE2 (
+  2      EMP_NO NUMBER(5),
+  3      EMP_NAME VARCHAR2(20),
+  4      EMP_SAL NUMBER(10),
+  5      EMP_COMM NUMBER(10),
+  6      DEPT_NO NUMBER(5)
+  7  );
+
+Table created.
+
+SQL> INSERT INTO EMPLOYEE2 VALUES (101, 'Smith', 800, NULL, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE2 VALUES (102, 'Snehal', 1600, 300, 25);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE2 VALUES (103, 'Adama', 1100, 0, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE2 VALUES (104, 'Aman', 3000, NULL, 15);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE2 VALUES (105, 'Anita', 5000, 5000, 10);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE2 VALUES (106, 'Sneha', 2450, 2450, 10);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE2 VALUES (107, 'Anamika', 2975, NULL, 30);
+
+1 row created.
+
+SQL> SELECT * FROM EMPLOYEE2 WHERE EMP_NAME LIKE 'A%';
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO                
+---------- -------------------- ---------- ---------- ----------                
+       103 Adama                      1100          0         20                
+       104 Aman                       3000                    15                
+       105 Anita                      5000       5000         10                
+       107 Anamika                    2975                    30                
+
+SQL> SELECT EMP_NAME AS EMP, EMP_SAL
+  2  
+SQL> FROM EMPLOYEE2
+SP2-0734: unknown command beginning "FROM EMPLO..." - rest of line ignored.
+SQL> 
+SQL> SELECT EMP_NAME AS EMP, EMP_SAL
+  2  FROM EMPLOYEE2
+  3  WHERE DEPT_NO = 20;
+
+EMP                     EMP_SAL                                                 
+-------------------- ----------                                                 
+Smith                       800                                                 
+Adama                      1100                                                 
+
+SQL> CREATE TABLE JOB2 (
+  2      JOB_ID VARCHAR2(10),
+  3      JOB_NAME VARCHAR2(20),
+  4      MIN_SAL NUMBER(10),
+  5      MAX_SAL NUMBER(10)
+  6  );
+
+Table created.
+
+SQL> INSERT INTO JOB2 VALUES ('IT_PROG', 'Programmer', 4000, 10000);
+
+1 row created.
+
+SQL> INSERT INTO JOB2 VALUES ('MK MGR', 'Marketing Manager', 9000, 15000);
+
+1 row created.
+
+SQL> INSERT INTO JOB2 VALUES ('FI_MGR', 'Finance Manager', 8200, 12000);
+
+1 row created.
+
+SQL> INSERT INTO JOB2 VALUES ('FI_ACC', 'Account', 4200, 9000);
+
+1 row created.
+
+SQL> INSERT INTO JOB2 VALUES ('LEC', 'Lecturer', 6000, 17000);
+
+1 row created.
+
+SQL> INSERT INTO JOB2 VALUES ('COMP_OP', 'Computer Operator', 1500, 3000);
+
+1 row created.
+
+SQL> SELECT * FROM JOB2 WHERE MIN_SAL > 4000;
+
+JOB_ID     JOB_NAME                MIN_SAL    MAX_SAL                           
+---------- -------------------- ---------- ----------                           
+MK MGR     Marketing Manager          9000      15000                           
+FI_MGR     Finance Manager            8200      12000                           
+FI_ACC     Account                    4200       9000                           
+LEC        Lecturer                   6000      17000                           
+
+SQL> SELECT A_NO, AMOUNT
+  2  FROM DEPOSIT4
+  3  WHERE ADATE BETWEEN '01-JAN-06' AND '25-JUL-06';
+SELECT A_NO, AMOUNT
+       *
+ERROR at line 1:
+ORA-00904: "A_NO": invalid identifier 
+
+
+SQL> SELECT ACT_NO, AMOUNT
+  2  FROM DEPOSIT4
+  3  WHERE ADATE BETWEEN '01-JAN-06' AND '25-JUL-06';
+SELECT ACT_NO, AMOUNT
+       *
+ERROR at line 1:
+ORA-00904: "ACT_NO": invalid identifier 
+
+
+SQL> SELECT ACTNO, AMOUNT
+  2  FROM DEPOSIT4
+  3  WHERE ADATE BETWEEN '01-JAN-06' AND '25-JUL-06';
+
+no rows selected
+
+SQL> UPDATE ITEM_MASTER2
+  2  SET QUALITY = 'Verygood'
+  3  WHERE QUALITY = 'Good';
+
+2 rows updated.
+
+SQL> DELETE FROM ITEM_MASTER2
+  2  WHERE PRICE = 50;
+
+1 row deleted.
+
+SQL> UPDATE CUST_MASTER2
+  2  SET ADDRESS1 = 'CG Road'
+  3  WHERE CUST_NAME = 'Priya';
+
+1 row updated.
+
+SQL> DELETE FROM CUST_MASTER2
+  2  WHERE PH_NO = '7898452034';
+
+1 row deleted.
+
+SQL> CREATE TABLE PERSON2 (
+  2      PERSON_ID NUMBER(5),
+  3      FNAME VARCHAR2(20),
+  4      LNAME VARCHAR2(20),
+  5      CITY VARCHAR2(20),
+  6      SALARY NUMBER(10)
+  7  );
+
+Table created.
+
+SQL> INSERT INTO PERSON2 VALUES (1, 'Sneha', 'Sheth', 'Rajkot', 10000);
+
+1 row created.
+
+SQL> INSERT INTO PERSON2 VALUES (2, 'Puja', 'Parmar', 'Ahmedabad', 2000);
+
+1 row created.
+
+SQL> INSERT INTO PERSON2 VALUES (3, 'Riya', 'Gajar', 'Pune', 8000);
+
+1 row created.
+
+SQL> INSERT INTO PERSON2 VALUES (4, 'Sandip', 'Jadeja', 'Pune', 5000);
+
+1 row created.
+
+SQL> INSERT INTO PERSON2 VALUES (5, 'Alpesh', 'Prajapati', 'Mumbai', 20000);
+
+1 row created.
+
+SQL> UPDATE PERSON2
+  2  SET CITY = 'Kolkata'
+  3  WHERE FNAME = 'Sandip';
+
+1 row updated.
+
+SQL> SELECT * FROM PERSON2
+  2  WHERE SALARY > 6000;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         1 Sneha                Sheth                Rajkot                     
+     10000                                                                      
+                                                                                
+         3 Riya                 Gajar                Pune                       
+      8000                                                                      
+                                                                                
+         5 Alpesh               Prajapati            Mumbai                     
+     20000                                                                      
+                                                                                
+
+SQL> CREATE TABLE BANK_BRANCH2 (
+  2      BRANCH_ID VARCHAR2(5),
+  3      BRANCH_NAME VARCHAR2(20),
+  4      BRANCH_ADDRESS VARCHAR2(30),
+  5      BRANCH_CITY VARCHAR2(20),
+  6      BRANCH_STATE VARCHAR2(20),
+  7      BRANCH_OPEN_DATE DATE
+  8  );
+
+Table created.
+
+SQL> INSERT INTO BANK_BRANCH2 VALUES ('B001', 'BOI', 'JagnathRoad', 'Rajkot', 'Gujarat', '22-MAR-2015');
+
+1 row created.
+
+SQL> INSERT INTO BANK_BRANCH2 VALUES ('B002', 'SBI', 'Boriwali Road', 'Mumbai', 'Maharashtra', '12-JAN-2000');
+
+1 row created.
+
+SQL> INSERT INTO BANK_BRANCH2 VALUES ('B003', 'HDFC', 'AgraRoad', 'Agra', 'U.P', '04-FEB-1998');
+
+1 row created.
+
+SQL> INSERT INTO BANK_BRANCH2 VALUES ('B004', 'DenaBank', 'CGRoad', 'Ahmedabad', 'Gujarat', '20-SEP-2012');
+
+1 row created.
+
+SQL> INSERT INTO BANK_BRANCH2 VALUES ('B005', 'ICICI', 'Majavdi Road', 'Junagadh', 'Gujarat', '07-MAY-2011');
+
+1 row created.
+
+SQL> SELECT * FROM BANK_BRANCH2
+  2  ORDER BY BRANCH_NAME;
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_OP                                                  
+-------------------- ---------                                                  
+B001  BOI                  JagnathRoad                    Rajkot                
+Gujarat              22-MAR-15                                                  
+                                                                                
+B004  DenaBank             CGRoad                         Ahmedabad             
+Gujarat              20-SEP-12                                                  
+                                                                                
+B003  HDFC                 AgraRoad                       Agra                  
+U.P                  04-FEB-98                                                  
+                                                                                
+
+BRANC BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY           
+----- -------------------- ------------------------------ --------------------  
+BRANCH_STATE         BRANCH_OP                                                  
+-------------------- ---------                                                  
+B005  ICICI                Majavdi Road                   Junagadh              
+Gujarat              07-MAY-11                                                  
+                                                                                
+B002  SBI                  Boriwali Road                  Mumbai                
+Maharashtra          12-JAN-00                                                  
+                                                                                
+
+SQL> SELECT BRANCH_NAME, BRANCH_ADDRESS, BRANCH_CITY
+  2  FROM BANK_BRANCH2;
+
+BRANCH_NAME          BRANCH_ADDRESS                 BRANCH_CITY                 
+-------------------- ------------------------------ --------------------        
+BOI                  JagnathRoad                    Rajkot                      
+SBI                  Boriwali Road                  Mumbai                      
+HDFC                 AgraRoad                       Agra                        
+DenaBank             CGRoad                         Ahmedabad                   
+ICICI                Majavdi Road                   Junagadh                    
+
+SQL> SELECT SUM(AMOUNT) FROM DEPOSIT4;
+
+SUM(AMOUNT)                                                                     
+-----------                                                                     
+      28700                                                                     
+
+SQL> SELECT COUNT(*) FROM CUSTOMERS2;
+
+  COUNT(*)                                                                      
+----------                                                                      
+        10                                                                      
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SPOOL OFF;
